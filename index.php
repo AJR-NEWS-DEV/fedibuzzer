@@ -1,19 +1,27 @@
-<?php 
-require 'lib/altorouter/AltoRouter.php';
-require 'lib/jshrink/src/JShrink/Minifier.php';
+<?php
+use MatthiasMullie\Minify;
+
+require 'vendor/autoload.php';
 
 $router = new AltoRouter();
+
+$router->setBasePath('/fedishare');
 
 $router->map('GET', '/', function() {
     header("Location: https://github.com/natureofmad/fedishare");
 });
 
-/*
+$router->map('GET', '/demo', function() {
+    require 'api/demo.php';
+});
+
 $router->map('GET', '/api/v1/script', function() {
     header("Content-type: text/javascript");
-    echo JShrink\Minifier::minify(file_get_contents("script/script.js"));
+    $packer = new Minify\JS("script/script.js");
+    $packed = $packer->minify();
+
+    echo $packed;
 });
-*/
 
 $router->map('GET', '/api/v1/instance', function() {
     require 'api/getInstanceInfo.php';

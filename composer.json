@@ -1,0 +1,6 @@
+{
+    "require": {
+        "altorouter/altorouter": "^2.0",
+        "matthiasmullie/minify": "^1.3"
+    }
+}
