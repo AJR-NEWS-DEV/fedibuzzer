@@ -1,9 +1,11 @@
 <?php
 require_once "_SOFTWARE_.php";
+error_reporting(E_ALL);
+ini_set('display_errors', 0);
 
 //ヘッダーの設定
 $header = [
-    "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Fedishare/0.3.0",
 ];
  
 //オプション設定
@@ -15,14 +17,13 @@ $options = [
 ];
 
 function error($code, $message) {
+    header("Content-type: application/json");
     echo json_encode([
         "status" => $code,
         "message" => $message
     ]);
     exit;
 }
-
-header("Content-type: application/json");
 
 if (empty($_GET['domain'])) {
     error(400, "domain is required");
@@ -35,11 +36,13 @@ if (!$real_domain) {
 
 switch($real_domain) {
     case "twitter.com":
+    case "x.com":
+        header("Content-type: application/json");
         echo json_encode([
             "status" => 200,
             "body" => [
                 "name" => "Twitter",
-                "urlScheme" => 'https://twitter.com/share?text=__TEXT__',
+                "urlScheme" => 'https://twitter.com/intent/tweet?text=__TEXT__',
             ]
         ]);
         exit;
@@ -68,6 +71,7 @@ if (isset($node_info["software"])) {
     } else {
         $info = FEDSHARE_SUPPORTED_SOFTWARE[$node_info["software"]["name"]];
 
+        header("Content-type: application/json");
         echo json_encode([
             "status" => 200,
             "body" => [

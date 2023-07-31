@@ -9,6 +9,10 @@ define("FEDSHARE_SUPPORTED_SOFTWARE", [
         "name" => "Calckey",
         "url" => "/share?text=__TEXT__"
     ],
+    "firefish" => [
+        "name" => "Firefish",
+        "url" => "/share?text=__TEXT__"
+    ],
     "mastodon" => [
         "name" => "Mastodon",
         "url" => "/share?text=__TEXT__"
@@ -23,6 +27,6 @@ define("FEDSHARE_SUPPORTED_SOFTWARE", [
     ],
     "diaspora" => [
         "name" => "diaspora*",
-        "url" => "/bookmarklet?title=__TEXT__"
+        "url" => "/bookmarklet?title=__TEXT__&url=__URL__"
     ],
 ]);
