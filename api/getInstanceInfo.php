@@ -25,13 +25,13 @@ function error($code, $message) {
     exit;
 }
 
-if (empty($_GET['domain'])) {
+if (empty($url)) {
     error(400, "domain is required");
 }
 
-$real_domain = parse_url($_GET['domain'], PHP_URL_HOST);
+$real_domain = parse_url($url, PHP_URL_HOST);
 if (!$real_domain) {
-    $real_domain = $_GET['domain'];
+    $real_domain = $url;
 }
 
 switch($real_domain) {
@@ -66,10 +66,11 @@ if (isset($node_info["links"][0]["href"])) {
 }
 
 if (isset($node_info["software"])) {
-    if (!array_key_exists($node_info["software"]["name"], FEDSHARE_SUPPORTED_SOFTWARE)) {
+    $server_name = mb_strtolower($node_info["software"]["name"]);
+    if (!array_key_exists($server_name, FEDSHARE_SUPPORTED_SOFTWARE)) {
         error(500, "we don't support this software");
     } else {
-        $info = FEDSHARE_SUPPORTED_SOFTWARE[$node_info["software"]["name"]];
+        $info = FEDSHARE_SUPPORTED_SOFTWARE[$server_name];
 
         header("Content-type: application/json");
         echo json_encode([
