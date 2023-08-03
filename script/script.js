@@ -2,6 +2,7 @@ const design = `<style>
 * {
     line-height: 1.15;
     -webkit-tap-highlight-color: transparent;
+    font-family: inherit;
 }
 
 #__fedishare__ {
