@@ -8,7 +8,7 @@ $router = new AltoRouter();
 $router->setBasePath('/fedishare');
 
 $router->map('GET', '/', function() {
-    header("Location: https://github.com/natureofmad/fedishare");
+    header("Location: https://fedishare.ajr-news.com/");
 });
 
 $router->map('GET', '/demo', function() {
@@ -25,6 +25,10 @@ $router->map('GET', '/api/v1/script', function() {
 
 $router->map('GET', '/api/v1/instance/[*:url]', function($url) {
     require 'api/getInstanceInfo.php';
+});
+
+$router->map('POST', '/api/v1/record', function() {
+    require 'api/stats.php';
 });
 
 // match current request url

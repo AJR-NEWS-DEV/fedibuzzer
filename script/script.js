@@ -136,6 +136,12 @@ const design = `<style>
     if (scriptOptions.credit == 'false') {
         shadow.getElementById('__fedishare_credit__').style.display = 'none';
     }
+    if ('sendBeacon' in navigator) {
+        const data = new URLSearchParams({
+            domain: location.host,
+        });
+        navigator.sendBeacon('https://fedishare-api.ajr-news.com/api/v1/record', data);
+    }
     rootEl.addEventListener('submit', (e) => {
         e.preventDefault();
         const instanceDomain = rootEl.querySelector('input').value;
@@ -165,9 +171,9 @@ const design = `<style>
             } else {
                 const shareText = scriptOptions.text ? scriptOptions.text.replace(/\\n/g, '\n') : `${document.title}\n${location.href} #fedishare`;
                 if (scriptOptions.window && scriptOptions.window === 'popup') {
-                    window.open(content.body.urlScheme.replace("__TEXT__", encodeURIComponent(shareText).replace("__URL__", encodeURIComponent(location.href))), null, 'width=450,height=300');
+                    window.open(content.body.urlScheme.replace("__TEXT__", encodeURIComponent(shareText)).replace("__URL__", encodeURIComponent(location.href)), null, 'width=450,height=300');
                 } else {
-                    window.open(content.body.urlScheme.replace("__TEXT__", encodeURIComponent(shareText).replace("__URL__", encodeURIComponent(location.href))));
+                    window.open(content.body.urlScheme.replace("__TEXT__", encodeURIComponent(shareText)).replace("__URL__", encodeURIComponent(location.href)));
                 }
             }
             if (submitEl) {
