@@ -126,6 +126,7 @@ const design = `<style>
 (() => {
     const scriptOptions = document.currentScript.dataset ?? {};
     const shadowEl = document.createElement('div');
+    shadowEl.classList.add('fedishare-container');
     const shadow = shadowEl.attachShadow({ mode: 'closed' });
     shadow.innerHTML = design;
     const rootEl = shadow.getElementById('__fedishare__');
