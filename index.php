@@ -8,7 +8,7 @@ $router = new AltoRouter();
 $router->setBasePath('/fedishare');
 
 $router->map('GET', '/', function() {
-    header("Location: https://fedishare.ajr-news.com/");
+    header("Location: https://fedibuzzer.ajr-news.com/");
 });
 
 $router->map('GET', '/demo', function() {
