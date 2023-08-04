@@ -83,8 +83,8 @@ const design = `<style>
 #__fedibuzzer__ button .i {
     display: inline-block;
     text-transform: none;
-    height: 1em;
-    width: 1em;
+    height: 1.15em;
+    width: 1.15em;
     vertical-align: -.125em;
     margin-right: .25em;
 }
