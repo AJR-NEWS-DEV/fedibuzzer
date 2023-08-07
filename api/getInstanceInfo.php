@@ -36,13 +36,23 @@ if (!$real_domain) {
 
 switch($real_domain) {
     case "twitter.com":
-    case "x.com":
+        case "x.com":
+            header("Content-type: application/json");
+            echo json_encode([
+                "status" => 200,
+                "body" => [
+                    "name" => "Twitter",
+                    "urlScheme" => 'https://twitter.com/intent/tweet?text=__TEXT__',
+                ]
+            ]);
+            exit;
+    case "taittsuu.com":
         header("Content-type: application/json");
         echo json_encode([
             "status" => 200,
             "body" => [
-                "name" => "Twitter",
-                "urlScheme" => 'https://twitter.com/intent/tweet?text=__TEXT__',
+                "name" => "タイッツー",
+                "urlScheme" => 'https://taittsuu.com/share?text=__TEXT__',
             ]
         ]);
         exit;
