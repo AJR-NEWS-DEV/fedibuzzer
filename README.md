@@ -27,4 +27,6 @@ $ composer install
 
 ## License
 
+(c) 2023 Kakkokari, AJR-NEWS.com
+
 AGPLv3
