@@ -2,6 +2,8 @@
 
 Fediverse対応SNSへの統合シェアボタンツール（API）
 
+[フロントエンドはこちら](https://github.com/AJR-NEWS-DEV/fedibuzzer-lp)
+
 ## 注意
 
 - キャッシュ機能は現状ついていません（Cloudflare側でキャッシュを利かせています）
