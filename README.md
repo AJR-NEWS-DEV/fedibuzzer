@@ -2,7 +2,7 @@
 
 Fediverse対応SNSへの統合シェアボタンツール（API）
 
-[フロントエンドはこちら](https://github.com/AJR-NEWS-DEV/fedibuzzer-lp)
+[フロントエンドはこちら](https://github.com/AJR-NEWS-DEV/fedibuzzer-lp) ただし、フロントエンドは通常の使用に必要ありません
 
 ## 注意
 
