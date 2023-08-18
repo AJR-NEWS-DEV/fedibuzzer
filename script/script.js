@@ -169,7 +169,7 @@ const design = `<style>
                         break;
                     }
             } else {
-                const shareText = scriptOptions.text ? scriptOptions.text.replace(/\\n/g, '\n') : `${document.title}\n${location.origin}${location.pathname} #fedibuzzer`;
+                const shareText = scriptOptions.text ? scriptOptions.text.replace(/\\n/g, '\n') : `${document.title}\n${location.origin}${location.pathname}`;
                 if (scriptOptions.window && scriptOptions.window === 'popup') {
                     window.open(content.body.urlScheme.replace("__TEXT__", encodeURIComponent(shareText)).replace("__URL__", encodeURIComponent(location.href)), null, 'width=450,height=300');
                 } else {
