@@ -13,6 +13,10 @@ define("FEDSHARE_SUPPORTED_SOFTWARE", [
         "name" => "Firefish",
         "url" => "/share?text=__TEXT__"
     ],
+    "iceshrimp" => [
+        "name" => "Iceshrimp",
+        "url" => "/share?text=__TEXT__"
+    ],
     "cherrypick" => [
         "name" => "CherryPick",
         "url" => "/share?text=__TEXT__"
