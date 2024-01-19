@@ -21,6 +21,10 @@ define("FEDSHARE_SUPPORTED_SOFTWARE", [
         "name" => "CherryPick",
         "url" => "/share?text=__TEXT__"
     ],
+    "sharkey" => [
+        "name" => "Sharkey",
+        "url" => "/share?text=__TEXT__"
+    ],
     "mastodon" => [
         "name" => "Mastodon",
         "url" => "/share?text=__TEXT__"
